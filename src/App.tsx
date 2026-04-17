@@ -6,19 +6,14 @@ import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import SearchPage from "./pages/SearchPage";
 import "./assets/scss/App.scss";
-import { useContext } from "react";
-import ThemeContext from "./contexts/ThemeContxt";
+import useTheme from "./hooks/useTheme";
 
 function App() {
-	const themeContext = useContext(ThemeContext);
-		if(!themeContext){
-		throw Error("Trying to use theme context outside of ThemeContextProvider!");
-	}
-
+		const {isDarkMode} = useTheme();
 
 	return (
 		<>
-		<div id="App" className={themeContext.isDarkMode ? "" : "bg-white text-black"}>
+		<div id="App" className={isDarkMode ? "" : "bg-white text-black"}>
 			<Navigation />
 
 			<Container className="py-4">

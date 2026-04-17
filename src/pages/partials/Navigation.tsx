@@ -2,16 +2,12 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link, NavLink } from "react-router";
-import { useContext } from "react";
-import ThemeContext from "../../contexts/ThemeContxt";
 import { Button } from "react-bootstrap";
+import useTheme from "../../hooks/useTheme";
 
 const Navigation = () => {
-	const themeContext = useContext(ThemeContext);
-		if(!themeContext){
-		throw Error("Trying to use theme context outside of ThemeContextProvider!");
-	}
-
+	const themeContext = useTheme();
+	
 	return (
 		<Navbar bg="dark" variant="dark" expand="sm">
 			<Container>
